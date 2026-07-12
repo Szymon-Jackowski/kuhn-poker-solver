@@ -52,18 +52,18 @@ class DecisionNode:
         return result
 
 
-    def strategy_summer(self):
+    def compute_average_strategy(self):
         '''
         Returns: result - a dictionary with decisions as keys
         and their average probability across all iterations so far
 
         >>> node = DecisionNode(["bet", "check"])
-        >>> node.strategy_summer()
+        >>> node.compute_average_strategy()
         {'bet': 0.5, 'check': 0.5}
 
         >>> node2 = DecisionNode(["bet", "check"])
         >>> node2.strategy_distribution = {"bet": 70, "check": 30}
-        >>> node2.strategy_summer()
+        >>> node2.compute_average_strategy()
         {'bet': 0.7, 'check': 0.3}
         '''
         result = {}
