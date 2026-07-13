@@ -42,7 +42,7 @@ def profit(decisions, players_cards):
     else:
         stake = 1 #case without betting
         if "bet" in list_of_decisions:
-            stake = 2 #case with bettting
+            stake = 2 #case with betting
 
         #showdown analysis
         player_on_move_card=players_cards[player_on_move]

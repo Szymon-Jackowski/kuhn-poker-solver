@@ -10,9 +10,11 @@ def train(iterations):
         cards.pop(cards.index(first_card))
         second_card=cards[random.randint(0,1)]
         solver([first_card, second_card], "", [1.0, 1.0])
-        if i%1000==0 and "Jack" in DecisionTree:
-            alpha = DecisionTree["Jack"].compute_average_strategy()["bet"]
-            alpha_history_for_visualisation.append(alpha)
+        if i % 1000 == 0:
+            node = DecisionTree.get("Jack")
+            if node is not None:
+                alpha = node.compute_average_strategy()["bet"]
+                alpha_history_for_visualisation.append((i, alpha))
 
 if __name__=="__main__":
     train(100000)
