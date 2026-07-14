@@ -28,7 +28,7 @@ This means two independently trained solvers can converge to different, equally 
 
 ## Convergence
 
-I ran 10 independent training sessions, one million iterations each, and plotted how alpha evolved over the course of each one (see charts/convergence0.png through charts/convergence9.png). Every run converged to a different value of alpha, which is expected given that there's a whole family of valid equilibria. All of them stayed within the theoretical range of 0 to 1/3 for the vast majority of training. Early on, with very little data, the curves are noisy and occasionally spike above 1/3 briefly - that's just small-sample variance, not a bug. They settle down and stay under the bound as training progresses.
+I ran 10 independent training sessions, one million iterations each, and plotted how alpha evolved over the course of each one (see charts/convergence0.png through charts/convergence9.png). Every run settled toward a different value of alpha, which is expected given that there's a whole family of valid equilibria. A few runs (see charts/convergence0.png, convergence5.png, convergence7.png) still show slow drift even after a million iterations rather than a flat plateau.
 
 ## Running it
 

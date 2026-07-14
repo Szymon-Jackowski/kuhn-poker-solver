@@ -30,11 +30,7 @@ def profit(decisions, players_cards):
     '''
     list_of_decisions = decisions.split("-")
     player_on_move = len(list_of_decisions)%2
-    # "".split("-") returns [''] (a list with one empty string), not an empty list,
-    # so len() would incorrectly give 1 instead of 0 for the very first move of the game.
-    # Player 1 always moves first, so we need to explicitly override this edge case.
-    if(decisions==""):
-        player_on_move=0
+    #if profit is called, len(list_of_decisions)>0, so no edge case requiring hard-coding
     
     if list_of_decisions[-1]=="fold":
         return 1
