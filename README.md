@@ -30,7 +30,7 @@ This means two independently trained solvers can converge to different, equally 
 
 ## Convergence
 
-I ran 10 independent training sessions, one million iterations each, and plotted how alpha evolved over the course of each one (see charts/convergence0.png through charts/convergence9.png). Every run settled toward a different value of alpha, which is expected given that there's a whole family of valid equilibria. A few runs (see charts/convergence0.png, convergence5.png, convergence7.png) still show slow drift even after a million iterations rather than a flat plateau. All of them stayed within the theoretical range of 0 to 1/3 for the vast majority of training, which is what the dashed "Theoretical max" line on each chart marks.
+I ran 10 independent training sessions, one million iterations each, and plotted how alpha evolved over the course of each one (see charts/convergence0.png through charts/convergence9.png). Every run settled toward a different value of alpha, which is expected given that there's a whole family of valid equilibria. A few runs (see charts/convergence0.png, convergence5.png, convergence7.png) still show slow drift even after a million iterations rather than a flat plateau. All of them stayed within the theoretical range of 0 to 1/3 for the vast majority of training. The dashed line on each chart marks that upper bound of 1/3.
 
 ## Running it
 

@@ -1,7 +1,7 @@
 class DecisionNode:
     def __init__(self, possible_decisions):
         '''
-        possible decisions: a 2-element list of possible moves 
+        possible_decisions: a 2-element list of possible moves 
         (will use get_possible_decisions from poker.py)
         '''
         self.possible_decisions=possible_decisions

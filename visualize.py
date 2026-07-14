@@ -1,18 +1,18 @@
 import matplotlib.pyplot as plt
 import os
 from matplotlib.ticker import FuncFormatter
-from train import train, alpha_history_for_visualisation
-from solver import DecisionTree
+from train import train, alpha_history_for_visualization
+from solver import decision_tree
 
 
 if __name__ == "__main__":
     os.makedirs("charts", exist_ok=True)
     for file_number in range(10):
-        DecisionTree.clear()
-        alpha_history_for_visualisation.clear()
+        decision_tree.clear()
+        alpha_history_for_visualization.clear()
         train(1000000)
-        iterations = [point[0] for point in alpha_history_for_visualisation]
-        alphas = [point[1] for point in alpha_history_for_visualisation]
+        iterations = [point[0] for point in alpha_history_for_visualization]
+        alphas = [point[1] for point in alpha_history_for_visualization]
         plt.figure()
         plt.plot(iterations, alphas)
         plt.xlabel("Training iteration")

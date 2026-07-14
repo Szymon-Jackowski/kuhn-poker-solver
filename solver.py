@@ -3,11 +3,11 @@ from poker import is_game_done, profit, get_possible_decisions
 
 
 '''
-DecisionTree stores every DecisionNode created during the iterations
+decision_tree stores every DecisionNode created during the iterations
 Keys in the dictionary are connected strings representing decisions so far and the card of the
 player on move
 '''
-DecisionTree={}
+decision_tree={}
 
 def solver(cards, decisions, pr):
     '''
@@ -30,32 +30,32 @@ def solver(cards, decisions, pr):
             player_on_move=0
 
         key = cards[player_on_move] + decisions #both are strings so we can do it
-        if key not in DecisionTree:
-            DecisionTree[key]=DecisionNode(get_possible_decisions(decisions))
+        if key not in decision_tree:
+            decision_tree[key]=DecisionNode(get_possible_decisions(decisions))
         
-        DN=DecisionTree[key]
-        strategy = DN.choose_decision(pr[player_on_move])
+        dn=decision_tree[key]
+        strategy = dn.choose_decision(pr[player_on_move])
         decision_values={}
 
-        for Dec in get_possible_decisions(decisions):
+        for dec in get_possible_decisions(decisions):
             if len(decisions)==0:
-                new_decision = Dec
+                new_decision = dec
             else:
-                new_decision = decisions+"-"+Dec
+                new_decision = decisions+"-"+dec
         
             new_pr=[pr[0], pr[1]]
-            new_pr[player_on_move]*=strategy[Dec]
+            new_pr[player_on_move]*=strategy[dec]
 
-            decision_values[Dec] = -solver(cards, new_decision, new_pr)
+            decision_values[dec] = -solver(cards, new_decision, new_pr)
         
-        node_value = sum(strategy[Dec] * decision_values[Dec]
-        for Dec in get_possible_decisions(decisions))
+        node_value = sum(strategy[dec] * decision_values[dec]
+        for dec in get_possible_decisions(decisions))
 
         opponent = (player_on_move+1)%2
         
-        for Dec in get_possible_decisions(decisions):
-            regret = decision_values[Dec] - node_value
-            DN.regret_so_far[Dec] += pr[opponent] * regret
+        for dec in get_possible_decisions(decisions):
+            regret = decision_values[dec] - node_value
+            dn.regret_so_far[dec] += pr[opponent] * regret
 
         return node_value 
 
