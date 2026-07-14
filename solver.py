@@ -1,4 +1,4 @@
-from DecisionNode import DecisionNode
+from decision_node import DecisionNode
 from poker import is_game_done, profit, get_possible_decisions
 
 
